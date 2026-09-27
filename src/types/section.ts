@@ -1,0 +1,38 @@
+import type { DirectionId } from "./design"
+import type { ProjectType } from "./project"
+
+export type SectionType =
+  | "navbar"
+  | "hero"
+  | "about"
+  | "services"
+  | "work"
+  | "testimonials"
+  | "cta"
+  | "footer"
+
+export type SectionCapabilities = {
+  images: boolean
+  editableContent: boolean
+}
+
+export type SectionDefinition = {
+  id: string
+  type: SectionType
+  name: string
+
+  component: string
+
+  compatibleProjectTypes: ProjectType[]
+  compatibleDirections: DirectionId[]
+
+  recommendedAfter?: SectionType[]
+  recommendedBefore?: SectionType[]
+
+  capabilities: SectionCapabilities
+}
+
+export type SectionInstance = {
+  id: string
+  definitionId: string
+}
