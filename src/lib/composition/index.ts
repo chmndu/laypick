@@ -14,3 +14,5 @@ export {
 } from "./update"
 
 export { createProjectFromPreset } from "./create-project"
+
+export { getCompatibleSections } from "./compatibility"

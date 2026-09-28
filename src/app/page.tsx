@@ -1,12 +1,22 @@
+"use client"
+
+import { useState } from "react"
 import { WebsitePreview } from "@/components/preview/WebsitePreview"
 import { createProjectFromPreset } from "@/lib/composition"
 
-const project = createProjectFromPreset(
+const initialProject = createProjectFromPreset(
   "Laypick Demo",
   "agency",
   "editorial",
 )
 
 export default function Home() {
-  return <WebsitePreview project={project} />
+  const [project, setProject] = useState(initialProject)
+
+  return (
+    <WebsitePreview
+      project={project}
+      onProjectChange={setProject}
+    />
+  )
 }
