@@ -1,8 +1,13 @@
 export function Navbar01() {
   return (
-    <header className="border-b border-black/10">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-        <span className="text-lg font-semibold tracking-tight">
+    <header className="border-b border-[var(--lp-border)]">
+      <div
+        className="mx-auto flex h-20 items-center justify-between px-6"
+        style={{
+          maxWidth: "var(--lp-max-width)",
+        }}
+      >
+        <span className="text-lg">
           Studio
         </span>
 
@@ -12,7 +17,12 @@ export function Navbar01() {
           <span>Contact</span>
         </nav>
 
-        <button className="rounded-full border border-black/15 px-4 py-2 text-sm md:hidden">
+        <button
+          className="rounded-full border border-[var(--lp-border)] px-4 py-2 text-sm md:hidden"
+          style={{
+            borderRadius: "var(--lp-radius)",
+          }}
+        >
           Menu
         </button>
       </div>

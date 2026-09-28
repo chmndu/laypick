@@ -1,27 +1,25 @@
-import type { Project } from "@/types/project"
 import { RenderSection } from "@/lib/renderer/render-section"
+import { getDesignTokenStyles } from "@/lib/renderer/design-tokens"
+import type { Project } from "@/types/project"
 
 type WebsitePreviewProps = {
-  project: Project
+    project: Project
 }
 
 export function WebsitePreview({
-  project,
+    project,
 }: WebsitePreviewProps) {
-  return (
-    <div
-      className="min-h-full"
-      style={{
-        backgroundColor: project.tokens.colors.background,
-        color: project.tokens.colors.foreground,
-      }}
-    >
-      {project.sections.map((section) => (
-        <RenderSection
-          key={section.id}
-          section={section}
-        />
-      ))}
-    </div>
-  )
+    return (
+        <div
+            className="lp-preview min-h-full"
+            style={getDesignTokenStyles(project.tokens)}
+        >
+            {project.sections.map((section) => (
+                <RenderSection
+                    key={section.id}
+                    section={section}
+                />
+            ))}
+        </div>
+    )
 }

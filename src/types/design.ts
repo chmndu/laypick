@@ -1,3 +1,9 @@
+export type FontId =
+  | "inter"
+  | "ibm-plex-sans"
+  | "playfair-display"
+  | "cormorant-garamond"
+
 export type DirectionId = "minimal" | "editorial" | "luxury"
 
 export type DesignTokens = {
@@ -10,8 +16,8 @@ export type DesignTokens = {
   }
 
   typography: {
-    headingFont: string
-    bodyFont: string
+    headingFont: FontId
+    bodyFont: FontId
     headingWeight: number
     bodyWeight: number
     headingScale: "compact" | "balanced" | "dramatic"

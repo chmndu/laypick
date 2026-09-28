@@ -108,7 +108,7 @@ export const sectionDefinitions: SectionDefinition[] = [
         ],
         compatibleDirections: ["editorial", "luxury"],
         capabilities: {
-            images: true,
+            images: false,
             editableContent: true,
         },
     },

@@ -2,10 +2,33 @@ import type { DirectionId, DesignTokens } from "@/types/design"
 import type { SectionInstance } from "@/types/section"
 import { minimalSections } from "./minimal"
 
+const editorialSections: SectionInstance[] = [
+  {
+    id: "section-navbar-01",
+    definitionId: "navbar-01",
+  },
+  {
+    id: "section-hero-03",
+    definitionId: "hero-03",
+  },
+  {
+    id: "section-services-01",
+    definitionId: "services-01",
+  },
+  {
+    id: "section-cta-01",
+    definitionId: "cta-01",
+  },
+  {
+    id: "section-footer-01",
+    definitionId: "footer-01",
+  },
+]
+
 export type DirectionPreset = {
-  directionId: DirectionId
-  tokens: DesignTokens
-  sections: SectionInstance[]
+    directionId: DirectionId
+    tokens: DesignTokens
+    sections: SectionInstance[]
 }
 
 export const directionPresets: DirectionPreset[] = [
@@ -20,8 +43,8 @@ export const directionPresets: DirectionPreset[] = [
                 border: "#E4E4DF",
             },
             typography: {
-                headingFont: "Inter",
-                bodyFont: "Inter",
+                headingFont: "inter",
+                bodyFont: "inter",
                 headingWeight: 600,
                 bodyWeight: 400,
                 headingScale: "balanced",
@@ -48,8 +71,8 @@ export const directionPresets: DirectionPreset[] = [
                 border: "#D8D0C4",
             },
             typography: {
-                headingFont: "Playfair Display",
-                bodyFont: "IBM Plex Sans",
+                headingFont: "playfair-display",
+                bodyFont: "ibm-plex-sans",
                 headingWeight: 500,
                 bodyWeight: 400,
                 headingScale: "dramatic",
@@ -63,7 +86,7 @@ export const directionPresets: DirectionPreset[] = [
                 maxWidth: "wide",
             },
         },
-        sections: minimalSections,
+        sections: editorialSections,
     },
     {
         directionId: "luxury",
@@ -76,8 +99,8 @@ export const directionPresets: DirectionPreset[] = [
                 border: "#302F2A",
             },
             typography: {
-                headingFont: "Cormorant Garamond",
-                bodyFont: "IBM Plex Sans",
+                headingFont: "cormorant-garamond",
+                bodyFont: "ibm-plex-sans",
                 headingWeight: 500,
                 bodyWeight: 400,
                 headingScale: "dramatic",

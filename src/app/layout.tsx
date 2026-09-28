@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { IBM_Plex_Sans } from "next/font/google"
 import "./globals.css"
+import { websiteFonts } from "@/data/fonts"
 
 const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-ibm-plex-sans",
@@ -20,7 +21,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={ibmPlexSans.variable}>{children}</body>
+      <body
+        className={[
+          ibmPlexSans.variable,
+          websiteFonts.inter.variable,
+          websiteFonts.ibmPlexSans.variable,
+          websiteFonts.playfairDisplay.variable,
+          websiteFonts.cormorantGaramond.variable,
+        ].join(" ")}
+      >
+        {children}
+      </body>
     </html>
   )
 }

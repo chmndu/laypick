@@ -6,26 +6,53 @@ const services = [
 
 export function Services01() {
   return (
-    <section className="border-t border-black/10">
-      <div className="mx-auto max-w-7xl px-6 py-24">
+    <section
+      className="border-t"
+      style={{
+        borderColor: "var(--lp-border)",
+        paddingBlock: "var(--lp-section-spacing)",
+      }}
+    >
+      <div
+        className="mx-auto px-6"
+        style={{
+          maxWidth: "var(--lp-max-width)",
+        }}
+      >
         <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-black/50">
+            <p
+              className="text-sm uppercase tracking-[0.2em]"
+              style={{
+                color: "var(--lp-muted)",
+              }}
+            >
               Services
             </p>
           </div>
 
-          <div className="divide-y divide-black/10 border-t border-black/10">
+          <div
+            className="divide-y border-t"
+            style={{
+              borderColor: "var(--lp-border)",
+            }}
+          >
             {services.map((service) => (
               <div
                 key={service}
                 className="flex items-center justify-between py-6"
               >
-                <span className="text-xl font-medium">
+                <span className="text-xl">
                   {service}
                 </span>
 
-                <span className="text-black/40">↗</span>
+                <span
+                  style={{
+                    color: "var(--lp-muted)",
+                  }}
+                >
+                  ↗
+                </span>
               </div>
             ))}
           </div>
