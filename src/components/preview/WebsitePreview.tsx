@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { sectionDefinitions } from "@/data/sections"
 import { getCompatibleSections, replaceSection } from "@/lib/composition"
-import { sectionComponents } from "@/lib/renderer/component-registry"
 import { getDesignTokenStyles } from "@/lib/renderer/design-tokens"
 import { RenderSection } from "@/lib/renderer/render-section"
+import { SectionThumbnail } from "./SectionThumbnail"
 import type { Project } from "@/types/project"
 
 type WebsitePreviewProps = {
@@ -55,42 +55,47 @@ export function WebsitePreview({
 
             {selectedSection && selectedDefinition.length > 0 && (
                 <div className="fixed bottom-6 left-1/2 z-50 w-[min(90vw,32rem)] -translate-x-1/2 rounded-xl border border-black/10 bg-white p-4 shadow-xl">
-                    <div className="mb-3 flex items-center justify-between">
-                        <span className="text-sm font-medium">
-                            Replace section
-                        </span>
+                    <div className="mb-4 flex items-start justify-between gap-4">
+                        <div>
+                            <p className="text-sm font-medium">
+                                Replace section
+                            </p>
+
+                            <p className="mt-1 text-xs text-black/50">
+                                Choose a different section variant.
+                            </p>
+                        </div>
 
                         <button
                             type="button"
-                            className="text-sm text-black/50"
+                            className="shrink-0 text-xs text-black/50 transition hover:text-black"
                             onClick={() => setSelectedSectionId(null)}
                         >
                             Close
                         </button>
                     </div>
 
-                    <div className="grid gap-2">
+                    <div className="grid gap-3">
                         {selectedDefinition.map((definition) => {
-                            const Component =
-                                sectionComponents[
-                                definition.component as keyof typeof sectionComponents
-                                ]
-
-                            if (!Component) return null
-
                             const isCurrent =
                                 definition.id === selectedSection.definitionId
 
                             return (
-                                <button
+                                <div
                                     key={definition.id}
-                                    type="button"
-                                    disabled={isCurrent}
-                                    className="flex items-center justify-between rounded-lg border border-black/10 px-3 py-2 text-left text-sm disabled:opacity-40"
+                                    role="button"
+                                    tabIndex={isCurrent ? -1 : 0}
+                                    aria-disabled={isCurrent}
+                                    className={[
+                                        "overflow-hidden rounded-lg border text-left transition",
+                                        isCurrent
+                                            ? "border-black ring-2 ring-black/10"
+                                            : "border-black/10 hover:border-black/30",
+                                    ].join(" ")}
                                     onClick={(event) => {
                                         event.stopPropagation()
 
-                                        if (!onProjectChange) return
+                                        if (isCurrent || !onProjectChange) return
 
                                         const replacement = {
                                             ...selectedSection,
@@ -106,12 +111,47 @@ export function WebsitePreview({
                                             ),
                                         })
                                     }}
+                                    onKeyDown={(event) => {
+                                        if (
+                                            !isCurrent &&
+                                            (event.key === "Enter" || event.key === " ")
+                                        ) {
+                                            event.preventDefault()
+
+                                            if (!onProjectChange) return
+
+                                            const replacement = {
+                                                ...selectedSection,
+                                                definitionId: definition.id,
+                                            }
+
+                                            onProjectChange({
+                                                ...project,
+                                                sections: replaceSection(
+                                                    project.sections,
+                                                    selectedSection.id,
+                                                    replacement,
+                                                ),
+                                            })
+                                        }
+                                    }}
                                 >
-                                    <span>{definition.name}</span>
-                                    <span className="text-black/40">
-                                        {isCurrent ? "Current" : "Use"}
-                                    </span>
-                                </button>
+                                    <div className="h-40 overflow-hidden bg-neutral-100">
+                                        <SectionThumbnail type={definition.thumbnail} />
+                                    </div>
+
+                                    <div className="flex items-center justify-between px-3 py-2">
+                                        <span className="text-sm">
+                                            {definition.name}
+                                        </span>
+
+                                        {isCurrent && (
+                                            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-[10px] text-white">
+                                                ✓
+                                            </span>
+                                        )}
+                                    </div>
+                                </div>
                             )
                         })}
                     </div>

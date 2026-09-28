@@ -16,12 +16,22 @@ export type SectionCapabilities = {
   editableContent: boolean
 }
 
+export type SectionThumbnail =
+  | "navbar-simple"
+  | "hero-left"
+  | "hero-split"
+  | "hero-bottom"
+  | "services-list"
+  | "cta-simple"
+  | "footer-simple"
+
 export type SectionDefinition = {
   id: string
   type: SectionType
   name: string
 
   component: string
+  thumbnail: SectionThumbnail
 
   compatibleProjectTypes: ProjectType[]
   compatibleDirections: DirectionId[]

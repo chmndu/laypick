@@ -6,6 +6,7 @@ export const sectionDefinitions: SectionDefinition[] = [
         type: "navbar",
         name: "Navbar 01",
         component: "Navbar01",
+        thumbnail: "navbar-simple",
         compatibleProjectTypes: [
             "business",
             "agency",
@@ -25,6 +26,7 @@ export const sectionDefinitions: SectionDefinition[] = [
         type: "navbar",
         name: "Navbar 02",
         component: "Navbar02",
+        thumbnail: "navbar-simple",
         compatibleProjectTypes: [
             "business",
             "agency",
@@ -44,6 +46,7 @@ export const sectionDefinitions: SectionDefinition[] = [
         type: "navbar",
         name: "Navbar 03",
         component: "Navbar03",
+        thumbnail: "navbar-simple",
         compatibleProjectTypes: [
             "business",
             "agency",
@@ -63,6 +66,7 @@ export const sectionDefinitions: SectionDefinition[] = [
         type: "hero",
         name: "Hero 01",
         component: "Hero01",
+        thumbnail: "hero-left",
         compatibleProjectTypes: [
             "business",
             "agency",
@@ -82,6 +86,7 @@ export const sectionDefinitions: SectionDefinition[] = [
         type: "hero",
         name: "Hero 02",
         component: "Hero02",
+        thumbnail: "hero-left",
         compatibleProjectTypes: [
             "business",
             "agency",
@@ -101,6 +106,7 @@ export const sectionDefinitions: SectionDefinition[] = [
         type: "hero",
         name: "Hero 03",
         component: "Hero03",
+        thumbnail: "hero-split",
         compatibleProjectTypes: [
             "agency",
             "portfolio",
@@ -118,6 +124,7 @@ export const sectionDefinitions: SectionDefinition[] = [
         type: "hero",
         name: "Hero 04",
         component: "Hero04",
+        thumbnail: "hero-bottom",
         compatibleProjectTypes: [
             "business",
             "agency",
@@ -136,6 +143,7 @@ export const sectionDefinitions: SectionDefinition[] = [
         type: "services",
         name: "Services 01",
         component: "Services01",
+        thumbnail: "services-list",
         compatibleProjectTypes: ["business", "agency", "saas"],
         compatibleDirections: ["minimal", "editorial", "luxury"],
         capabilities: {
@@ -149,6 +157,7 @@ export const sectionDefinitions: SectionDefinition[] = [
         type: "work",
         name: "Work 01",
         component: "Work01",
+        thumbnail: "hero-split",
         compatibleProjectTypes: ["agency", "portfolio", "other"],
         compatibleDirections: ["minimal", "editorial", "luxury"],
         capabilities: {
@@ -162,6 +171,7 @@ export const sectionDefinitions: SectionDefinition[] = [
         type: "cta",
         name: "CTA 01",
         component: "CTA01",
+        thumbnail: "cta-simple",
         compatibleProjectTypes: [
             "business",
             "agency",
@@ -181,6 +191,7 @@ export const sectionDefinitions: SectionDefinition[] = [
         type: "footer",
         name: "Footer 01",
         component: "Footer01",
+        thumbnail: "footer-simple",
         compatibleProjectTypes: [
             "business",
             "agency",
