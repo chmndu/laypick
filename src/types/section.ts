@@ -25,6 +25,12 @@ export type SectionThumbnail =
   | "cta-simple"
   | "footer-simple"
 
+export type SectionContentField = {
+  id: string
+  label: string
+  type: "text" | "textarea"
+}
+
 export type SectionDefinition = {
   id: string
   type: SectionType
@@ -40,6 +46,7 @@ export type SectionDefinition = {
   recommendedBefore?: SectionType[]
 
   capabilities: SectionCapabilities
+  contentFields: SectionContentField[]
 }
 
 export type SectionInstance = {

@@ -1,4 +1,12 @@
-export function Navbar01() {
+import type { ContentValue } from "@/types/content"
+
+type Navbar01Props = {
+  content: Record<string, ContentValue>
+}
+
+export function Navbar01({
+  content,
+}: Navbar01Props) {
   return (
     <header className="border-b border-[var(--lp-border)]">
       <div
@@ -8,7 +16,7 @@ export function Navbar01() {
         }}
       >
         <span className="text-lg">
-          Studio
+          {content.brand}
         </span>
 
         <nav className="hidden items-center gap-8 text-sm md:flex">
@@ -19,9 +27,7 @@ export function Navbar01() {
 
         <button
           className="rounded-full border border-[var(--lp-border)] px-4 py-2 text-sm md:hidden"
-          style={{
-            borderRadius: "var(--lp-radius)",
-          }}
+          style={{ borderRadius: "var(--lp-radius)" }}
         >
           Menu
         </button>

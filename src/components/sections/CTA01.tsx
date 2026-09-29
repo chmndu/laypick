@@ -1,4 +1,12 @@
-export function CTA01() {
+import type { ContentValue } from "@/types/content"
+
+type CTA01Props = {
+  content: Record<string, ContentValue>
+}
+
+export function CTA01({
+  content,
+}: CTA01Props) {
   return (
     <section
       className="border-t"
@@ -9,22 +17,18 @@ export function CTA01() {
     >
       <div
         className="mx-auto px-6"
-        style={{
-          maxWidth: "var(--lp-max-width)",
-        }}
+        style={{ maxWidth: "var(--lp-max-width)" }}
       >
         <div style={{ maxWidth: "48rem" }}>
           <p
             className="mb-6 text-sm uppercase tracking-[0.2em]"
-            style={{
-              color: "var(--lp-muted)",
-            }}
+            style={{ color: "var(--lp-muted)" }}
           >
-            Start a project
+            {content.eyebrow}
           </p>
 
           <h2 className="text-4xl tracking-tight md:text-6xl">
-            Have something worth building?
+            {content.heading}
           </h2>
 
           <button
@@ -35,7 +39,7 @@ export function CTA01() {
               borderRadius: "var(--lp-radius)",
             }}
           >
-            Get in touch
+            {content.buttonLabel}
           </button>
         </div>
       </div>

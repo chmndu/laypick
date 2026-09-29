@@ -1,6 +1,11 @@
 import { useState } from "react"
 import { sectionDefinitions } from "@/data/sections"
-import { getCompatibleSections, replaceSection } from "@/lib/composition"
+import {
+    getCompatibleSections,
+    getDefaultSectionContent,
+    replaceSection,
+    setSectionContent,
+} from "@/lib/composition"
 import { getDesignTokenStyles } from "@/lib/renderer/design-tokens"
 import { RenderSection } from "@/lib/renderer/render-section"
 import { SectionThumbnail } from "./SectionThumbnail"
@@ -48,7 +53,10 @@ export function WebsitePreview({
                             <div className="pointer-events-none absolute inset-0 z-10 border-2 border-dashed border-[var(--lp-accent)]" />
                         )}
 
-                        <RenderSection section={section} />
+                        <RenderSection
+                            section={section}
+                            content={project.content.sections[section.id]}
+                        />
                     </div>
                 )
             })}
@@ -102,6 +110,12 @@ export function WebsitePreview({
                                             definitionId: definition.id,
                                         }
 
+                                        const nextContent = setSectionContent(
+                                            project.content,
+                                            selectedSection.id,
+                                            getDefaultSectionContent(replacement.definitionId),
+                                        )
+
                                         onProjectChange({
                                             ...project,
                                             sections: replaceSection(
@@ -109,6 +123,7 @@ export function WebsitePreview({
                                                 selectedSection.id,
                                                 replacement,
                                             ),
+                                            content: nextContent,
                                         })
                                     }}
                                     onKeyDown={(event) => {

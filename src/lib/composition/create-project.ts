@@ -1,6 +1,21 @@
+import { defaultContent } from "@/data/content/defaults"
 import { directionPresets } from "@/data/presets"
-import { createProject } from "./project"
+import type { ContentState } from "@/types/content"
 import type { ProjectType } from "@/types/project"
+import { createProject } from "./project"
+
+function createPresetContent(
+  sections: Parameters<typeof createProject>[0]["sections"],
+): ContentState {
+  return {
+    sections: Object.fromEntries(
+      sections.map((section) => [
+        section.id,
+        defaultContent.sections[section.definitionId] ?? {},
+      ]),
+    ),
+  }
+}
 
 export function createProjectFromPreset(
   name: string,
@@ -23,5 +38,6 @@ export function createProjectFromPreset(
     directionId,
     tokens: preset.tokens,
     sections: preset.sections,
+    content: createPresetContent(preset.sections),
   })
 }

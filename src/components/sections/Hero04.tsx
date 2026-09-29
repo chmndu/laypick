@@ -1,4 +1,12 @@
-export function Hero04() {
+import type { ContentValue } from "@/types/content"
+
+type Hero04Props = {
+    content: Record<string, ContentValue>
+}
+
+export function Hero04({
+    content,
+}: Hero04Props) {
     return (
         <section
             style={{
@@ -11,16 +19,19 @@ export function Hero04() {
                     maxWidth: "var(--lp-max-width)",
                 }}
             >
-                <div className="border-t pt-8" style={{ borderColor: "var(--lp-border)" }}>
+                <div
+                    className="border-t pt-8"
+                    style={{ borderColor: "var(--lp-border)" }}
+                >
                     <p
                         className="mb-8 text-sm uppercase tracking-[0.2em]"
                         style={{ color: "var(--lp-muted)" }}
                     >
-                        Digital studio
+                        {content.eyebrow}
                     </p>
 
                     <h1 className="max-w-5xl text-6xl leading-[0.9] tracking-tight md:text-8xl">
-                        We make digital work that gets remembered.
+                        {content.heading}
                     </h1>
 
                     <div className="mt-10 flex justify-end">
@@ -28,8 +39,7 @@ export function Hero04() {
                             className="max-w-md text-lg leading-8"
                             style={{ color: "var(--lp-muted)" }}
                         >
-                            Strategy, identity, and digital experiences for
-                            brands moving with intention.
+                            {content.description}
                         </p>
                     </div>
                 </div>

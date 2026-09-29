@@ -1,4 +1,12 @@
-export function Hero01() {
+import type { ContentValue } from "@/types/content"
+
+type Hero01Props = {
+  content: Record<string, ContentValue>
+}
+
+export function Hero01({
+  content,
+}: Hero01Props) {
   return (
     <section
       style={{
@@ -13,25 +21,20 @@ export function Hero01() {
       >
         <p
           className="mb-6 text-sm uppercase tracking-[0.2em]"
-          style={{
-            color: "var(--lp-muted)",
-          }}
+          style={{ color: "var(--lp-muted)" }}
         >
-          Independent creative studio
+          {content.eyebrow}
         </p>
 
         <h1 className="max-w-4xl text-5xl tracking-tight md:text-7xl">
-          Ideas made tangible.
+          {content.heading}
         </h1>
 
         <p
           className="mt-8 max-w-2xl text-lg leading-8"
-          style={{
-            color: "var(--lp-muted)",
-          }}
+          style={{ color: "var(--lp-muted)" }}
         >
-          We create thoughtful digital experiences for brands,
-          products, and people with something worth saying.
+          {content.description}
         </p>
       </div>
     </section>

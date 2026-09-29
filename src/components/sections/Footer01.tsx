@@ -1,10 +1,16 @@
-export function Footer01() {
+import type { ContentValue } from "@/types/content"
+
+type Footer01Props = {
+  content: Record<string, ContentValue>
+}
+
+export function Footer01({
+  content,
+}: Footer01Props) {
   return (
     <footer
       className="border-t"
-      style={{
-        borderColor: "var(--lp-border)",
-      }}
+      style={{ borderColor: "var(--lp-border)" }}
     >
       <div
         className="mx-auto flex flex-col gap-4 px-6 py-8 text-sm md:flex-row md:items-center md:justify-between"
@@ -13,9 +19,8 @@ export function Footer01() {
           color: "var(--lp-muted)",
         }}
       >
-        <span>Studio</span>
-
-        <span>© 2026 All rights reserved.</span>
+        <span>{content.brand}</span>
+        <span>{content.copyright}</span>
       </div>
     </footer>
   )
