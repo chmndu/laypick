@@ -1,7 +1,7 @@
-import type { ContentValue } from "@/types/content"
+import type { NavbarContent } from "@/types/content"
 
 type Navbar01Props = {
-  content: Record<string, ContentValue>
+  content: NavbarContent
 }
 
 export function Navbar01({

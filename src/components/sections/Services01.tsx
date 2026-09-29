@@ -1,16 +1,12 @@
-import type { ContentValue } from "@/types/content"
+import type { ServiceItem } from "@/types/content"
 
 type Services01Props = {
-  content: Record<string, ContentValue>
+  content: ServiceItem[]
 }
 
 export function Services01({
   content,
 }: Services01Props) {
-  const services = Array.isArray(content.services)
-    ? content.services
-    : []
-
   return (
     <section
       className="border-t"
@@ -37,12 +33,12 @@ export function Services01({
             className="divide-y border-t"
             style={{ borderColor: "var(--lp-border)" }}
           >
-            {services.map((service) => (
+            {content.map((service) => (
               <div
-                key={service}
+                key={service.title}
                 className="flex items-center justify-between py-6"
               >
-                <span className="text-xl">{service}</span>
+                <span className="text-xl">{service.title}</span>
                 <span style={{ color: "var(--lp-muted)" }}>↗</span>
               </div>
             ))}

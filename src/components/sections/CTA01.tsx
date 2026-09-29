@@ -1,7 +1,7 @@
-import type { ContentValue } from "@/types/content"
+import type { CTAContent } from "@/types/content"
 
 type CTA01Props = {
-  content: Record<string, ContentValue>
+  content: CTAContent
 }
 
 export function CTA01({

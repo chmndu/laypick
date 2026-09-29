@@ -1,6 +1,7 @@
 import type { DirectionId, DesignTokens } from "./design"
 import type { SectionInstance } from "./section"
-import type { ContentState, AssetState } from "./content"
+import type { ContentState } from "./content"
+import type { AssetState } from "./asset"
 import type { MotionPresetId } from "./motion"
 import type { ProjectType } from "./project"
 

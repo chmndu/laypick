@@ -2,9 +2,7 @@ import { useState } from "react"
 import { sectionDefinitions } from "@/data/sections"
 import {
     getCompatibleSections,
-    getDefaultSectionContent,
     replaceSection,
-    setSectionContent,
 } from "@/lib/composition"
 import { getDesignTokenStyles } from "@/lib/renderer/design-tokens"
 import { RenderSection } from "@/lib/renderer/render-section"
@@ -55,14 +53,14 @@ export function WebsitePreview({
 
                         <RenderSection
                             section={section}
-                            content={project.content.sections[section.id]}
+                            content={project.content}
                         />
                     </div>
                 )
             })}
 
             {selectedSection && selectedDefinition.length > 0 && (
-                <div className="fixed bottom-6 left-1/2 z-50 w-[min(90vw,32rem)] -translate-x-1/2 rounded-xl border border-black/10 bg-white p-4 shadow-xl">
+                <div className="fixed bottom-6 left-1/2 z-50 w-[min(90vw,32rem)] -translate-x-1/2 rounded-xl border border-black/10 bg-white p-4 text-black shadow-xl">
                     <div className="mb-4 flex items-start justify-between gap-4">
                         <div>
                             <p className="text-sm font-medium">
@@ -110,12 +108,6 @@ export function WebsitePreview({
                                             definitionId: definition.id,
                                         }
 
-                                        const nextContent = setSectionContent(
-                                            project.content,
-                                            selectedSection.id,
-                                            getDefaultSectionContent(replacement.definitionId),
-                                        )
-
                                         onProjectChange({
                                             ...project,
                                             sections: replaceSection(
@@ -123,7 +115,6 @@ export function WebsitePreview({
                                                 selectedSection.id,
                                                 replacement,
                                             ),
-                                            content: nextContent,
                                         })
                                     }}
                                     onKeyDown={(event) => {

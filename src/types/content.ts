@@ -1,19 +1,53 @@
-export type ContentValue =
-  | string
-  | string[]
+import type { Asset } from "./asset"
+
+export type HeroContent = {
+  eyebrow: string
+  heading: string
+  description: string
+  supportingPoints: string[]
+  images: Asset[]
+}
+
+export type ServiceItem = {
+  title: string
+  description?: string
+}
+
+export type WorkItem = {
+  title: string
+  category: string
+  description?: string
+  image?: Asset
+}
+
+export type TestimonialItem = {
+  quote: string
+  name: string
+  role?: string
+  image?: Asset
+}
+
+export type CTAContent = {
+  eyebrow: string
+  heading: string
+  buttonLabel: string
+}
+
+export type NavbarContent = {
+  brand: string
+}
+
+export type FooterContent = {
+  brand: string
+  copyright: string
+}
 
 export type ContentState = {
-  sections: Record<string, Record<string, ContentValue>>
-}
-
-export type Asset = {
-  id: string
-  type: "image"
-  source: "preset" | "upload"
-  src: string
-  alt?: string
-}
-
-export type AssetState = {
-  sections: Record<string, Asset[]>
+  hero?: HeroContent
+  services?: ServiceItem[]
+  work?: WorkItem[]
+  testimonials?: TestimonialItem[]
+  cta?: CTAContent
+  navbar?: NavbarContent
+  footer?: FooterContent
 }

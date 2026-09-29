@@ -17,7 +17,4 @@ export { createProjectFromPreset } from "./create-project"
 
 export { getCompatibleSections } from "./compatibility"
 
-export {
-  getDefaultSectionContent,
-  setSectionContent,
-} from "./content"
+export { cloneContent } from "./content"

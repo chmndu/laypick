@@ -19,13 +19,6 @@ export const sectionDefinitions: SectionDefinition[] = [
             images: false,
             editableContent: true,
         },
-        contentFields: [
-            {
-                id: "brand",
-                label: "Brand",
-                type: "text",
-            },
-        ],
     },
 
     {
@@ -46,13 +39,6 @@ export const sectionDefinitions: SectionDefinition[] = [
             images: false,
             editableContent: true,
         },
-        contentFields: [
-            {
-                id: "brand",
-                label: "Brand",
-                type: "text",
-            },
-        ],
     },
 
     {
@@ -73,13 +59,6 @@ export const sectionDefinitions: SectionDefinition[] = [
             images: false,
             editableContent: true,
         },
-        contentFields: [
-            {
-                id: "brand",
-                label: "Brand",
-                type: "text",
-            },
-        ],
     },
 
     {
@@ -100,23 +79,6 @@ export const sectionDefinitions: SectionDefinition[] = [
             images: true,
             editableContent: true,
         },
-        contentFields: [
-            {
-                id: "eyebrow",
-                label: "Eyebrow",
-                type: "text",
-            },
-            {
-                id: "heading",
-                label: "Heading",
-                type: "text",
-            },
-            {
-                id: "description",
-                label: "Description",
-                type: "textarea",
-            },
-        ],
     },
 
     {
@@ -137,7 +99,6 @@ export const sectionDefinitions: SectionDefinition[] = [
             images: true,
             editableContent: true,
         },
-        contentFields: [],
     },
 
     {
@@ -156,23 +117,6 @@ export const sectionDefinitions: SectionDefinition[] = [
             images: false,
             editableContent: true,
         },
-        contentFields: [
-            {
-                id: "eyebrow",
-                label: "Eyebrow",
-                type: "text",
-            },
-            {
-                id: "heading",
-                label: "Heading",
-                type: "text",
-            },
-            {
-                id: "description",
-                label: "Description",
-                type: "textarea",
-            },
-        ],
     },
 
     {
@@ -192,23 +136,6 @@ export const sectionDefinitions: SectionDefinition[] = [
             images: false,
             editableContent: true,
         },
-        contentFields: [
-            {
-                id: "eyebrow",
-                label: "Eyebrow",
-                type: "text",
-            },
-            {
-                id: "heading",
-                label: "Heading",
-                type: "text",
-            },
-            {
-                id: "description",
-                label: "Description",
-                type: "textarea",
-            },
-        ],
     },
 
     {
@@ -223,13 +150,6 @@ export const sectionDefinitions: SectionDefinition[] = [
             images: false,
             editableContent: true,
         },
-        contentFields: [
-            {
-                id: "services",
-                label: "Services",
-                type: "list",
-            },
-        ],
     },
 
     {
@@ -244,7 +164,6 @@ export const sectionDefinitions: SectionDefinition[] = [
             images: true,
             editableContent: true,
         },
-        contentFields: [],
     },
 
     {
@@ -265,23 +184,6 @@ export const sectionDefinitions: SectionDefinition[] = [
             images: false,
             editableContent: true,
         },
-        contentFields: [
-            {
-                id: "eyebrow",
-                label: "Eyebrow",
-                type: "text",
-            },
-            {
-                id: "heading",
-                label: "Heading",
-                type: "text",
-            },
-            {
-                id: "buttonLabel",
-                label: "Button label",
-                type: "text",
-            },
-        ],
     },
 
     {
@@ -302,17 +204,5 @@ export const sectionDefinitions: SectionDefinition[] = [
             images: false,
             editableContent: true,
         },
-        contentFields: [
-            {
-                id: "brand",
-                label: "Brand",
-                type: "text",
-            },
-            {
-                id: "copyright",
-                label: "Copyright",
-                type: "text",
-            },
-        ],
     },
 ]

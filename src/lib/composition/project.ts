@@ -1,8 +1,6 @@
 import type { DirectionId, DesignTokens } from "@/types/design"
-import type {
-  ContentState,
-  AssetState,
-} from "@/types/content"
+import type { ContentState } from "@/types/content"
+import type { AssetState } from "@/types/asset"
 import type { HistoryState } from "@/types/history"
 import type { MotionPresetId } from "@/types/motion"
 import type {
@@ -22,12 +20,10 @@ export type CreateProjectOptions = {
   motion?: MotionPresetId
 }
 
-const createEmptyContent = (): ContentState => ({
-  sections: {},
-})
+const createEmptyContent = (): ContentState => ({})
 
 const createEmptyAssets = (): AssetState => ({
-  sections: {},
+  items: [],
 })
 
 const createEmptyHistory = (): HistoryState => ({

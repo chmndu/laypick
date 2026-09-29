@@ -1,7 +1,7 @@
-import type { ContentValue } from "@/types/content"
+import type { HeroContent } from "@/types/content"
 
 type Hero04Props = {
-    content: Record<string, ContentValue>
+    content: HeroContent
 }
 
 export function Hero04({

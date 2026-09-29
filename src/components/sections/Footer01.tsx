@@ -1,7 +1,7 @@
-import type { ContentValue } from "@/types/content"
+import type { FooterContent } from "@/types/content"
 
 type Footer01Props = {
-  content: Record<string, ContentValue>
+  content: FooterContent
 }
 
 export function Footer01({
