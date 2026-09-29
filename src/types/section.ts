@@ -28,7 +28,7 @@ export type SectionThumbnail =
 export type SectionContentField = {
   id: string
   label: string
-  type: "text" | "textarea"
+  type: "text" | "textarea" | "list"
 }
 
 export type SectionDefinition = {

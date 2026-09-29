@@ -1,10 +1,16 @@
-const services = [
-  "Web Design",
-  "Development",
-  "Digital Experiences",
-]
+import type { ContentValue } from "@/types/content"
 
-export function Services01() {
+type Services01Props = {
+  content: Record<string, ContentValue>
+}
+
+export function Services01({
+  content,
+}: Services01Props) {
+  const services = Array.isArray(content.services)
+    ? content.services
+    : []
+
   return (
     <section
       className="border-t"
@@ -15,17 +21,13 @@ export function Services01() {
     >
       <div
         className="mx-auto px-6"
-        style={{
-          maxWidth: "var(--lp-max-width)",
-        }}
+        style={{ maxWidth: "var(--lp-max-width)" }}
       >
         <div className="grid gap-12 md:grid-cols-[1fr_2fr]">
           <div>
             <p
               className="text-sm uppercase tracking-[0.2em]"
-              style={{
-                color: "var(--lp-muted)",
-              }}
+              style={{ color: "var(--lp-muted)" }}
             >
               Services
             </p>
@@ -33,26 +35,15 @@ export function Services01() {
 
           <div
             className="divide-y border-t"
-            style={{
-              borderColor: "var(--lp-border)",
-            }}
+            style={{ borderColor: "var(--lp-border)" }}
           >
             {services.map((service) => (
               <div
                 key={service}
                 className="flex items-center justify-between py-6"
               >
-                <span className="text-xl">
-                  {service}
-                </span>
-
-                <span
-                  style={{
-                    color: "var(--lp-muted)",
-                  }}
-                >
-                  ↗
-                </span>
+                <span className="text-xl">{service}</span>
+                <span style={{ color: "var(--lp-muted)" }}>↗</span>
               </div>
             ))}
           </div>

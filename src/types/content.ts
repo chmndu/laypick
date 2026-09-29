@@ -1,4 +1,6 @@
-export type ContentValue = string
+export type ContentValue =
+  | string
+  | string[]
 
 export type ContentState = {
   sections: Record<string, Record<string, ContentValue>>

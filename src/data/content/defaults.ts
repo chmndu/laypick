@@ -27,6 +27,14 @@ export const defaultContent: ContentState = {
         "Strategy, identity, and digital experiences for brands moving with intention.",
     },
 
+    "services-01": {
+      services: [
+        "Web Design",
+        "Development",
+        "Digital Experiences",
+      ],
+    },
+
     "cta-01": {
       eyebrow: "Start a project",
       heading: "Have something worth building?",

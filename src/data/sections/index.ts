@@ -223,7 +223,13 @@ export const sectionDefinitions: SectionDefinition[] = [
             images: false,
             editableContent: true,
         },
-        contentFields: [],
+        contentFields: [
+            {
+                id: "services",
+                label: "Services",
+                type: "list",
+            },
+        ],
     },
 
     {
