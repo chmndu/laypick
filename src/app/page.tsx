@@ -6,7 +6,7 @@ import { createProjectFromPreset } from "@/lib/composition"
 
 const initialProject = createProjectFromPreset(
   "Laypick Demo",
-  "agency",
+  "portfolio",
   "editorial",
 )
 

@@ -1,10 +1,5 @@
 import type { DirectionId, DesignTokens } from "@/types/design"
 import type { SectionInstance } from "@/types/section"
-import type { ContentState } from "@/types/content"
-
-import { minimalContent } from "@/data/content/minimal"
-import { editorialContent } from "@/data/content/editorial"
-import { luxuryContent } from "@/data/content/luxury"
 
 import { minimalSections } from "./minimal"
 import { editorialSections } from "./editorial"
@@ -101,7 +96,6 @@ export type DirectionPreset = {
   directionId: DirectionId
   tokens: DesignTokens
   sections: SectionInstance[]
-  content: ContentState
 }
 
 export const directionPresets: DirectionPreset[] = [
@@ -109,20 +103,17 @@ export const directionPresets: DirectionPreset[] = [
     directionId: "minimal",
     tokens: minimalTokens,
     sections: minimalSections,
-    content: minimalContent,
   },
 
   {
     directionId: "editorial",
     tokens: editorialTokens,
     sections: editorialSections,
-    content: editorialContent,
   },
 
   {
     directionId: "luxury",
     tokens: luxuryTokens,
     sections: luxurySections,
-    content: luxuryContent,
   },
 ]
