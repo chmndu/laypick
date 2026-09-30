@@ -7,6 +7,9 @@ import {
 import { getDesignTokenStyles } from "@/lib/renderer/design-tokens"
 import { RenderSection } from "@/lib/renderer/render-section"
 import { SectionThumbnail } from "./SectionThumbnail"
+import { ControlBar } from "@/components/controls/ControlBar"
+import { ControlDrawer } from "@/components/controls/ControlDrawer"
+import type { ControlPanel } from "@/types/controls"
 import type { Project } from "@/types/project"
 
 type WebsitePreviewProps = {
@@ -18,9 +21,8 @@ export function WebsitePreview({
     project,
     onProjectChange,
 }: WebsitePreviewProps) {
-    const [selectedSectionId, setSelectedSectionId] = useState<string | null>(
-        null,
-    )
+    const [selectedSectionId, setSelectedSectionId] = useState<string | null>(null)
+    const [activePanel, setActivePanel] = useState<ControlPanel | null>(null)
 
     const selectedSection = project.sections.find(
         (section) => section.id === selectedSectionId,
@@ -163,6 +165,31 @@ export function WebsitePreview({
                     </div>
                 </div>
             )}
+
+            <ControlBar
+                activePanel={activePanel}
+                onPanelChange={(panel) => {
+                    setSelectedSectionId(null)
+                    setActivePanel(panel)
+                }}
+            />
+
+            <ControlDrawer
+                activePanel={activePanel}
+                onClose={() => setActivePanel(null)}
+            >
+                {activePanel === "design" ? (
+                    <div>Design System</div>
+                ) : null}
+
+                {activePanel === "sections" ? (
+                    <div>Sections</div>
+                ) : null}
+
+                {activePanel === "responsive" ? (
+                    <div>Responsive</div>
+                ) : null}
+            </ControlDrawer>
         </div>
     )
 }
