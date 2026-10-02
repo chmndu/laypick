@@ -15,19 +15,43 @@ export function Navbar01({
           maxWidth: "var(--lp-max-width)",
         }}
       >
-        <span className="text-lg">
+        <span
+          style={{
+            fontFamily: "var(--lp-type-navigation-font)",
+            fontSize: "var(--lp-type-navigation-size)",
+            lineHeight: "var(--lp-type-navigation-line-height)",
+            fontWeight: "var(--lp-type-navigation-weight)",
+            letterSpacing: "var(--lp-type-navigation-tracking)",
+          }}
+        >
           {content.brand}
         </span>
 
-        <nav className="hidden items-center gap-8 text-sm md:flex">
+        <nav
+          className="hidden items-center gap-8 md:flex"
+          style={{
+            fontFamily: "var(--lp-type-navigation-font)",
+            fontSize: "var(--lp-type-navigation-size)",
+            lineHeight: "var(--lp-type-navigation-line-height)",
+            fontWeight: "var(--lp-type-navigation-weight)",
+            letterSpacing: "var(--lp-type-navigation-tracking)",
+          }}
+        >
           <span>Work</span>
           <span>About</span>
           <span>Contact</span>
         </nav>
 
         <button
-          className="rounded-full border border-[var(--lp-border)] px-4 py-2 text-sm md:hidden"
-          style={{ borderRadius: "var(--lp-radius)" }}
+          className="rounded-full border border-[var(--lp-border)] px-4 py-2 md:hidden"
+          style={{
+            borderRadius: "var(--lp-radius)",
+            fontFamily: "var(--lp-type-button-font)",
+            fontSize: "var(--lp-type-button-size)",
+            lineHeight: "var(--lp-type-button-line-height)",
+            fontWeight: "var(--lp-type-button-weight)",
+            letterSpacing: "var(--lp-type-button-tracking)",
+          }}
         >
           Menu
         </button>

@@ -21,23 +21,48 @@ export function Hero04({
             >
                 <div
                     className="border-t pt-8"
-                    style={{ borderColor: "var(--lp-border)" }}
+                    style={{
+                        borderColor: "var(--lp-border)",
+                    }}
                 >
                     <p
-                        className="mb-8 text-sm uppercase tracking-[0.2em]"
-                        style={{ color: "var(--lp-muted)" }}
+                        className="mb-8 uppercase"
+                        style={{
+                            color: "var(--lp-muted)",
+                            fontFamily: "var(--lp-type-eyebrow-font)",
+                            fontSize: "var(--lp-type-eyebrow-size)",
+                            lineHeight: "var(--lp-type-eyebrow-line-height)",
+                            fontWeight: "var(--lp-type-eyebrow-weight)",
+                            letterSpacing: "var(--lp-type-eyebrow-tracking)",
+                        }}
                     >
                         {content.eyebrow}
                     </p>
 
-                    <h1 className="max-w-5xl text-6xl leading-[0.9] tracking-tight md:text-8xl">
+                    <h1
+                        className="max-w-5xl"
+                        style={{
+                            fontFamily: "var(--lp-type-display-font)",
+                            fontSize: "var(--lp-type-display-size)",
+                            lineHeight: "var(--lp-type-display-line-height)",
+                            fontWeight: "var(--lp-type-display-weight)",
+                            letterSpacing: "var(--lp-type-display-tracking)",
+                        }}
+                    >
                         {content.heading}
                     </h1>
 
                     <div className="mt-10 flex justify-end">
                         <p
-                            className="max-w-md text-lg leading-8"
-                            style={{ color: "var(--lp-muted)" }}
+                            className="max-w-md"
+                            style={{
+                                color: "var(--lp-muted)",
+                                fontFamily: "var(--lp-type-bodyLarge-font)",
+                                fontSize: "var(--lp-type-bodyLarge-size)",
+                                lineHeight: "var(--lp-type-bodyLarge-line-height)",
+                                fontWeight: "var(--lp-type-bodyLarge-weight)",
+                                letterSpacing: "var(--lp-type-bodyLarge-tracking)",
+                            }}
                         >
                             {content.description}
                         </p>

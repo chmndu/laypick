@@ -1,10 +1,36 @@
+export type DirectionId = "minimal" | "editorial" | "luxury"
+
 export type FontId =
   | "inter"
   | "ibm-plex-sans"
   | "playfair-display"
   | "cormorant-garamond"
 
-export type DirectionId = "minimal" | "editorial" | "luxury"
+export type TypographyRoleId =
+  | "display"
+  | "headingLarge"
+  | "headingMedium"
+  | "bodyLarge"
+  | "body"
+  | "eyebrow"
+  | "navigation"
+  | "button"
+  | "caption"
+
+export type TypographyRole = {
+  font: "heading" | "body"
+  size: string
+  lineHeight: string
+  weight: number
+  letterSpacing: string
+}
+
+export type TypographySystem = {
+  headingFont: FontId
+  bodyFont: FontId
+
+  roles: Record<TypographyRoleId, TypographyRole>
+}
 
 export type DesignTokens = {
   colors: {
@@ -15,13 +41,7 @@ export type DesignTokens = {
     border: string
   }
 
-  typography: {
-    headingFont: FontId
-    bodyFont: FontId
-    headingWeight: number
-    bodyWeight: number
-    headingScale: "compact" | "balanced" | "dramatic"
-  }
+  typography: TypographySystem
 
   spacing: {
     section: "compact" | "comfortable" | "generous"

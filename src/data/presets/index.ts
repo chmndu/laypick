@@ -1,96 +1,6 @@
-import type { DirectionId, DesignTokens } from "@/types/design"
+import type { DesignTokens, DirectionId } from "@/types/design"
 import type { SectionInstance } from "@/types/section"
-
-import { minimalSections } from "./minimal"
-import { editorialSections } from "./editorial"
-import { luxurySections } from "./luxury"
-
-const minimalTokens: DesignTokens = {
-  colors: {
-    background: "#F8F8F6",
-    foreground: "#171717",
-    muted: "#6F6F6A",
-    accent: "#171717",
-    border: "#E4E4DF",
-  },
-
-  typography: {
-    headingFont: "inter",
-    bodyFont: "inter",
-    headingWeight: 600,
-    bodyWeight: 400,
-    headingScale: "balanced",
-  },
-
-  spacing: {
-    section: "comfortable",
-    content: "balanced",
-  },
-
-  radius: "small",
-
-  layout: {
-    maxWidth: "standard",
-  },
-}
-
-const editorialTokens: DesignTokens = {
-  colors: {
-    background: "#F3F0EA",
-    foreground: "#1C1A17",
-    muted: "#716B62",
-    accent: "#8A4B32",
-    border: "#D8D0C4",
-  },
-
-  typography: {
-    headingFont: "playfair-display",
-    bodyFont: "ibm-plex-sans",
-    headingWeight: 500,
-    bodyWeight: 400,
-    headingScale: "dramatic",
-  },
-
-  spacing: {
-    section: "generous",
-    content: "wide",
-  },
-
-  radius: "none",
-
-  layout: {
-    maxWidth: "wide",
-  },
-}
-
-const luxuryTokens: DesignTokens = {
-  colors: {
-    background: "#11110F",
-    foreground: "#F2EFE7",
-    muted: "#AAA59A",
-    accent: "#C9B27C",
-    border: "#302F2A",
-  },
-
-  typography: {
-    headingFont: "cormorant-garamond",
-    bodyFont: "ibm-plex-sans",
-    headingWeight: 500,
-    bodyWeight: 400,
-    headingScale: "dramatic",
-  },
-
-  spacing: {
-    section: "generous",
-    content: "balanced",
-  },
-
-  radius: "none",
-
-  layout: {
-    maxWidth: "standard",
-  },
-}
+import { typographyPairs } from "@/data/design/typography"
 
 export type DirectionPreset = {
   directionId: DirectionId
@@ -98,22 +8,166 @@ export type DirectionPreset = {
   sections: SectionInstance[]
 }
 
+const minimalTypography = typographyPairs.find(
+  (pair) => pair.id === "modern",
+)!.system
+
+const editorialTypography = typographyPairs.find(
+  (pair) => pair.id === "editorial",
+)!.system
+
+const luxuryTypography = typographyPairs.find(
+  (pair) => pair.id === "luxury",
+)!.system
+
 export const directionPresets: DirectionPreset[] = [
   {
     directionId: "minimal",
-    tokens: minimalTokens,
-    sections: minimalSections,
+
+    tokens: {
+      colors: {
+        background: "#F8F8F6",
+        foreground: "#171717",
+        muted: "#6F6F6A",
+        accent: "#171717",
+        border: "#E4E4DF",
+      },
+
+      typography: minimalTypography,
+
+      spacing: {
+        section: "comfortable",
+        content: "balanced",
+      },
+
+      radius: "small",
+
+      layout: {
+        maxWidth: "standard",
+      },
+    },
+
+    sections: [
+      {
+        id: crypto.randomUUID(),
+        definitionId: "navbar-01",
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: "hero-01",
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: "services-01",
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: "cta-01",
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: "footer-01",
+      },
+    ],
   },
 
   {
     directionId: "editorial",
-    tokens: editorialTokens,
-    sections: editorialSections,
+
+    tokens: {
+      colors: {
+        background: "#F3F0EA",
+        foreground: "#1C1A17",
+        muted: "#716B62",
+        accent: "#8A4B32",
+        border: "#D8D0C4",
+      },
+
+      typography: editorialTypography,
+
+      spacing: {
+        section: "generous",
+        content: "wide",
+      },
+
+      radius: "none",
+
+      layout: {
+        maxWidth: "wide",
+      },
+    },
+
+    sections: [
+      {
+        id: crypto.randomUUID(),
+        definitionId: "navbar-01",
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: "hero-03",
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: "services-01",
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: "cta-01",
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: "footer-01",
+      },
+    ],
   },
 
   {
     directionId: "luxury",
-    tokens: luxuryTokens,
-    sections: luxurySections,
+
+    tokens: {
+      colors: {
+        background: "#11110F",
+        foreground: "#F2EFE7",
+        muted: "#AAA59A",
+        accent: "#C9B27C",
+        border: "#302F2A",
+      },
+
+      typography: luxuryTypography,
+
+      spacing: {
+        section: "generous",
+        content: "balanced",
+      },
+
+      radius: "none",
+
+      layout: {
+        maxWidth: "standard",
+      },
+    },
+
+    sections: [
+      {
+        id: crypto.randomUUID(),
+        definitionId: "navbar-01",
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: "hero-04",
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: "services-01",
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: "cta-01",
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: "footer-01",
+      },
+    ],
   },
 ]

@@ -1,138 +1,81 @@
-import type { CSSProperties } from "react"
-import type { DesignTokens } from "@/types/design"
+import type { DesignTokens, TypographyRoleId } from "@/types/design"
 
-type DesignTokenStyles = CSSProperties & {
-    "--lp-background": string
-    "--lp-foreground": string
-    "--lp-muted": string
-    "--lp-accent": string
-    "--lp-border": string
+const fontVariableMap = {
+    inter: "var(--font-inter)",
+    "ibm-plex-sans": "var(--font-ibm-plex-sans)",
+    "playfair-display": "var(--font-playfair-display)",
+    "cormorant-garamond": "var(--font-cormorant-garamond)",
+} as const
 
-    "--lp-heading-font": string
-    "--lp-body-font": string
+const spacingMap = {
+    compact: "4rem",
+    comfortable: "6rem",
+    generous: "8rem",
+} as const
 
-    "--lp-heading-weight": number
-    "--lp-body-weight": number
+const contentWidthMap = {
+    narrow: "48rem",
+    balanced: "64rem",
+    wide: "80rem",
+} as const
 
-    "--lp-section-spacing": string
-    "--lp-content-width": string
-    "--lp-radius": string
-    "--lp-max-width": string
-}
+const maxWidthMap = {
+    narrow: "56rem",
+    standard: "72rem",
+    wide: "90rem",
+} as const
+
+const radiusMap = {
+    none: "0",
+    small: "0.5rem",
+    medium: "0.75rem",
+    large: "1rem",
+} as const
 
 export function getDesignTokenStyles(
     tokens: DesignTokens,
-): DesignTokenStyles {
-    return {
+): React.CSSProperties {
+    const styles: Record<string, string> = {
         "--lp-background": tokens.colors.background,
         "--lp-foreground": tokens.colors.foreground,
         "--lp-muted": tokens.colors.muted,
         "--lp-accent": tokens.colors.accent,
         "--lp-border": tokens.colors.border,
 
-        "--lp-heading-font": getFontVariable(
-            tokens.typography.headingFont,
-        ),
-        "--lp-body-font": getFontVariable(
-            tokens.typography.bodyFont,
-        ),
+        "--lp-heading-font":
+            fontVariableMap[tokens.typography.headingFont],
 
-        "--lp-heading-weight": tokens.typography.headingWeight,
-        "--lp-body-weight": tokens.typography.bodyWeight,
+        "--lp-body-font":
+            fontVariableMap[tokens.typography.bodyFont],
 
-        "--lp-section-spacing": getSectionSpacing(
-            tokens.spacing.section,
-        ),
+        "--lp-section-spacing":
+            spacingMap[tokens.spacing.section],
 
-        "--lp-content-width": getContentWidth(
-            tokens.spacing.content,
-        ),
+        "--lp-content-width":
+            contentWidthMap[tokens.spacing.content],
 
-        "--lp-radius": getRadius(tokens.radius),
+        "--lp-radius":
+            radiusMap[tokens.radius],
 
-        "--lp-max-width": getMaxWidth(
-            tokens.layout.maxWidth,
-        ),
+        "--lp-max-width":
+            maxWidthMap[tokens.layout.maxWidth],
     }
-}
 
-function getFontVariable(
-    font: DesignTokens["typography"]["headingFont"],
-) {
-    switch (font) {
-        case "inter":
-            return "var(--lp-font-inter)"
+    for (const [roleId, role] of Object.entries(
+        tokens.typography.roles,
+    ) as [TypographyRoleId, DesignTokens["typography"]["roles"][TypographyRoleId]][]) {
+        const prefix = `--lp-type-${roleId}`
 
-        case "ibm-plex-sans":
-            return "var(--lp-font-ibm-plex-sans)"
+        styles[`${prefix}-font`] =
+            role.font === "heading"
+                ? "var(--lp-heading-font)"
+                : "var(--lp-body-font)"
 
-        case "playfair-display":
-            return "var(--lp-font-playfair-display)"
-
-        case "cormorant-garamond":
-            return "var(--lp-font-cormorant-garamond)"
+        styles[`${prefix}-size`] = role.size
+        styles[`${prefix}-line-height`] = role.lineHeight
+        styles[`${prefix}-weight`] = String(role.weight)
+        styles[`${prefix}-tracking`] = role.letterSpacing
     }
-}
 
-function getSectionSpacing(
-    spacing: DesignTokens["spacing"]["section"],
-) {
-    switch (spacing) {
-        case "compact":
-            return "4rem"
-
-        case "comfortable":
-            return "6rem"
-
-        case "generous":
-            return "9rem"
-    }
-}
-
-function getContentWidth(
-    width: DesignTokens["spacing"]["content"],
-) {
-    switch (width) {
-        case "narrow":
-            return "42rem"
-
-        case "balanced":
-            return "52rem"
-
-        case "wide":
-            return "64rem"
-    }
-}
-
-function getRadius(
-    radius: DesignTokens["radius"],
-) {
-    switch (radius) {
-        case "none":
-            return "0"
-
-        case "small":
-            return "0.375rem"
-
-        case "medium":
-            return "0.75rem"
-
-        case "large":
-            return "1.25rem"
-    }
-}
-
-function getMaxWidth(
-    width: DesignTokens["layout"]["maxWidth"],
-) {
-    switch (width) {
-        case "narrow":
-            return "64rem"
-
-        case "standard":
-            return "80rem"
-
-        case "wide":
-            return "90rem"
-    }
+    return styles as React.CSSProperties
 }
