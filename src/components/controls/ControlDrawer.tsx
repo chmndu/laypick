@@ -31,17 +31,17 @@ export function ControlDrawer({
         >
             <SheetContent
                 side="right"
-                className="w-[min(90vw,24rem)] sm:max-w-[24rem]"
+                className="w-[min(90vw,26rem)] gap-0 p-0 sm:max-w-[26rem]"
             >
                 {activePanel ? (
                     <>
-                        <div className="border-b pb-4">
+                        <div className="flex h-12 shrink-0 items-center justify-between border-b px-4">
                             <h2 className="text-sm font-medium">
                                 {panelTitles[activePanel]}
                             </h2>
                         </div>
 
-                        <div className="overflow-y-auto py-5">
+                        <div className="min-h-0 flex-1 overflow-y-auto px-4 py-5">
                             {children}
                         </div>
                     </>

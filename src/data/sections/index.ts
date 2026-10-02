@@ -144,7 +144,7 @@ export const sectionDefinitions: SectionDefinition[] = [
         name: "Services 01",
         component: "Services01",
         thumbnail: "services-list",
-        compatibleProjectTypes: ["business", "agency", "saas"],
+        compatibleProjectTypes: ["business", "agency", "portfolio", "saas", "other"],
         compatibleDirections: ["minimal", "editorial", "luxury"],
         capabilities: {
             images: false,

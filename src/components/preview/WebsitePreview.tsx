@@ -9,6 +9,7 @@ import { RenderSection } from "@/lib/renderer/render-section"
 import { SectionThumbnail } from "./SectionThumbnail"
 import { ControlBar } from "@/components/controls/ControlBar"
 import { ControlDrawer } from "@/components/controls/ControlDrawer"
+import { DesignSystemPanel } from "@/components/controls/DesignSystemPanel"
 import type { ControlPanel } from "@/types/controls"
 import type { Project } from "@/types/project"
 
@@ -179,7 +180,10 @@ export function WebsitePreview({
                 onClose={() => setActivePanel(null)}
             >
                 {activePanel === "design" ? (
-                    <div>Design System</div>
+                    <DesignSystemPanel
+                        project={project}
+                        onProjectChange={onProjectChange}
+                    />
                 ) : null}
 
                 {activePanel === "sections" ? (

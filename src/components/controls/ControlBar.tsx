@@ -42,7 +42,7 @@ export function ControlBar({
 }: ControlBarProps) {
     return (
         <div className="fixed bottom-6 left-1/2 z-40 -translate-x-1/2">
-            <div className="flex items-center gap-1 rounded-xl border bg-white p-1.5 shadow-lg">
+            <div className="flex items-center gap-1 rounded-xl border border-black/10 bg-white p-1.5 text-black shadow-lg">
                 {controls.map((control) => {
                     const Icon = control.icon
                     const active = activePanel === control.id
@@ -52,6 +52,7 @@ export function ControlBar({
                             key={control.id}
                             variant={active ? "secondary" : "ghost"}
                             size="sm"
+                            className="text-black"
                             onClick={() => onPanelChange(control.id)}
                         >
                             <Icon />
