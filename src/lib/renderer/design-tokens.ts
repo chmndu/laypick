@@ -1,10 +1,10 @@
 import type { DesignTokens, TypographyRoleId } from "@/types/design"
 
 const fontVariableMap = {
-    inter: "var(--font-inter)",
-    "ibm-plex-sans": "var(--font-ibm-plex-sans)",
-    "playfair-display": "var(--font-playfair-display)",
-    "cormorant-garamond": "var(--font-cormorant-garamond)",
+    inter: "var(--lp-font-inter)",
+    "ibm-plex-sans": "var(--lp-font-ibm-plex-sans)",
+    "playfair-display": "var(--lp-font-playfair-display)",
+    "cormorant-garamond": "var(--lp-font-cormorant-garamond)",
 } as const
 
 const spacingMap = {

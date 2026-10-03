@@ -7,7 +7,7 @@ import { createProjectFromPreset } from "@/lib/composition"
 const initialProject = createProjectFromPreset(
   "Laypick Demo",
   "portfolio",
-  "luxury",
+  "minimal",
 )
 
 export default function Home() {
