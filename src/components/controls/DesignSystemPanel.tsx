@@ -191,7 +191,7 @@ export function DesignSystemPanel({
                     </h3>
 
                     <p className="mt-1 text-xs text-muted-foreground">
-                        Choose a type pairing or control each font separately.
+                        Choose a type pairing or customize the fonts individually.
                     </p>
                 </div>
 
@@ -216,6 +216,7 @@ export function DesignSystemPanel({
                                         ...tokens.typography,
                                         headingFont: pair.headingFont,
                                         bodyFont: pair.bodyFont,
+                                        roles: structuredClone(pair.system.roles),
                                     })
                                 }
                             >

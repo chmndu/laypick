@@ -1,4 +1,7 @@
-import type { DesignTokens, TypographyRoleId } from "@/types/design"
+import type {
+    DesignTokens,
+    TypographyRoleId,
+} from "@/types/design"
 
 const fontVariableMap = {
     inter: "var(--lp-font-inter)",
@@ -42,12 +45,6 @@ export function getDesignTokenStyles(
         "--lp-accent": tokens.colors.accent,
         "--lp-border": tokens.colors.border,
 
-        "--lp-heading-font":
-            fontVariableMap[tokens.typography.headingFont],
-
-        "--lp-body-font":
-            fontVariableMap[tokens.typography.bodyFont],
-
         "--lp-section-spacing":
             spacingMap[tokens.spacing.section],
 
@@ -63,13 +60,16 @@ export function getDesignTokenStyles(
 
     for (const [roleId, role] of Object.entries(
         tokens.typography.roles,
-    ) as [TypographyRoleId, DesignTokens["typography"]["roles"][TypographyRoleId]][]) {
+    ) as [
+        TypographyRoleId,
+        DesignTokens["typography"]["roles"][TypographyRoleId],
+    ][]) {
         const prefix = `--lp-type-${roleId}`
 
         styles[`${prefix}-font`] =
             role.font === "heading"
-                ? "var(--lp-heading-font)"
-                : "var(--lp-body-font)"
+                ? fontVariableMap[tokens.typography.headingFont]
+                : fontVariableMap[tokens.typography.bodyFont]
 
         styles[`${prefix}-size`] = role.size
         styles[`${prefix}-line-height`] = role.lineHeight

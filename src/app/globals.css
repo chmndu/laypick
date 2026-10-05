@@ -64,24 +64,6 @@ body {
 .lp-preview {
   background: var(--lp-background);
   color: var(--lp-foreground);
-  font-family: var(--lp-body-font), sans-serif;
-}
-
-.lp-preview h1,
-.lp-preview h2,
-.lp-preview h3,
-.lp-preview h4,
-.lp-preview h5,
-.lp-preview h6 {
-  font-family: var(--lp-heading-font), sans-serif;
-  font-weight: var(--lp-heading-weight);
-}
-
-.lp-preview p,
-.lp-preview span,
-.lp-preview a,
-.lp-preview button {
-  font-weight: var(--lp-body-weight);
 }
 
 :root {
@@ -157,9 +139,11 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
