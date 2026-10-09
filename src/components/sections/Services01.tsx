@@ -1,12 +1,11 @@
-import type { ServiceItem } from "@/types/content"
+
+import type { ServicesContent } from "@/types/content"
 
 type Services01Props = {
-  content: ServiceItem[]
+  content: ServicesContent
 }
 
-export function Services01({
-  content,
-}: Services01Props) {
+export function Services01({ content }: Services01Props) {
   return (
     <section
       className="border-t"
@@ -32,7 +31,7 @@ export function Services01({
                 letterSpacing: "var(--lp-type-eyebrow-tracking)",
               }}
             >
-              Services
+              {content.eyebrow}
             </p>
           </div>
 
@@ -40,21 +39,18 @@ export function Services01({
             className="divide-y border-t"
             style={{ borderColor: "var(--lp-border)" }}
           >
-            {content.map((service) => (
+            {content.items.map((service, index) => (
               <div
-                key={service.title}
+                key={service.id ?? `${service.title}-${index}`}
                 className="flex items-center justify-between py-6"
               >
                 <span
                   style={{
                     fontFamily: "var(--lp-type-headingMedium-font)",
                     fontSize: "var(--lp-type-headingMedium-size)",
-                    lineHeight:
-                      "var(--lp-type-headingMedium-line-height)",
-                    fontWeight:
-                      "var(--lp-type-headingMedium-weight)",
-                    letterSpacing:
-                      "var(--lp-type-headingMedium-tracking)",
+                    lineHeight: "var(--lp-type-headingMedium-line-height)",
+                    fontWeight: "var(--lp-type-headingMedium-weight)",
+                    letterSpacing: "var(--lp-type-headingMedium-tracking)",
                   }}
                 >
                   {service.title}

@@ -18,20 +18,23 @@ export const agencyContent: ContentState = {
         images: [],
     },
 
-    services: [
-        {
-            title: "Brand Strategy",
-            description: "Finding the clearest direction for your brand.",
-        },
-        {
-            title: "Web Design",
-            description: "Creating distinctive and purposeful digital experiences.",
-        },
-        {
-            title: "Development",
-            description: "Turning considered designs into reliable websites.",
-        },
-    ],
+    services: {
+        eyebrow: "Services",
+        items: [
+            {
+                title: "Brand Strategy",
+                description: "Finding the clearest direction for your brand.",
+            },
+            {
+                title: "Web Design",
+                description: "Creating distinctive and purposeful digital experiences.",
+            },
+            {
+                title: "Development",
+                description: "Turning considered designs into reliable websites.",
+            },
+        ],
+    },
 
     cta: {
         eyebrow: "Start a project",

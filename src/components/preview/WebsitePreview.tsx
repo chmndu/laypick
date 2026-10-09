@@ -5,6 +5,7 @@ import { ControlBar } from "@/components/controls/ControlBar"
 import { ControlDrawer } from "@/components/controls/ControlDrawer"
 import { DesignSystemPanel } from "@/components/controls/DesignSystemPanel"
 import { SectionsPanel } from "@/components/controls/SectionsPanel"
+import { ContentPanel } from "@/components/controls/ContentPanel"
 import type { ControlPanel } from "@/types/controls"
 import type { Project } from "@/types/project"
 
@@ -53,6 +54,13 @@ export function WebsitePreview({
 
                 {activePanel === "sections" ? (
                     <SectionsPanel
+                        project={project}
+                        onProjectChange={onProjectChange}
+                    />
+                ) : null}
+
+                {activePanel === "content" ? (
+                    <ContentPanel
                         project={project}
                         onProjectChange={onProjectChange}
                     />

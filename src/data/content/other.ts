@@ -18,20 +18,23 @@ export const otherContent: ContentState = {
         images: [],
     },
 
-    services: [
-        {
-            title: "Planning",
-            description: "Turning an idea into a clear direction.",
-        },
-        {
-            title: "Design",
-            description: "Creating an experience with purpose and character.",
-        },
-        {
-            title: "Build",
-            description: "Bringing the final direction to life.",
-        },
-    ],
+    services: {
+        eyebrow: "Services",
+        items: [
+            {
+                title: "Planning",
+                description: "Turning an idea into a clear direction.",
+            },
+            {
+                title: "Design",
+                description: "Creating an experience with purpose and character.",
+            },
+            {
+                title: "Build",
+                description: "Bringing the final direction to life.",
+            },
+        ],
+    },
 
     cta: {
         eyebrow: "Have an idea?",

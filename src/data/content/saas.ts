@@ -18,20 +18,23 @@ export const saasContent: ContentState = {
         images: [],
     },
 
-    services: [
-        {
-            title: "Project Management",
-            description: "Keep projects, tasks, and deadlines in one place.",
-        },
-        {
-            title: "Automation",
-            description: "Remove repetitive work from your team's workflow.",
-        },
-        {
-            title: "Team Collaboration",
-            description: "Give everyone a clear view of what needs to happen next.",
-        },
-    ],
+    services: {
+        eyebrow: "Services",
+        items: [
+            {
+                title: "Project Management",
+                description: "Keep projects, tasks, and deadlines in one place.",
+            },
+            {
+                title: "Automation",
+                description: "Remove repetitive work from your team's workflow.",
+            },
+            {
+                title: "Team Collaboration",
+                description: "Give everyone a clear view of what needs to happen next.",
+            },
+        ],
+    },
 
     cta: {
         eyebrow: "Get started",

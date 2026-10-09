@@ -18,20 +18,23 @@ export const businessContent: ContentState = {
         images: [],
     },
 
-    services: [
-        {
-            title: "Custom Design",
-            description: "Furniture shaped around your space and needs.",
-        },
-        {
-            title: "Fabric Selection",
-            description: "Choose materials and finishes that feel like yours.",
-        },
-        {
-            title: "Delivery",
-            description: "Careful delivery from our showroom to your home.",
-        },
-    ],
+    services: {
+        eyebrow: "Services",
+        items: [
+            {
+                title: "Custom Design",
+                description: "Furniture shaped around your space and needs.",
+            },
+            {
+                title: "Fabric Selection",
+                description: "Choose materials and finishes that feel like yours.",
+            },
+            {
+                title: "Delivery",
+                description: "Careful delivery from our showroom to your home.",
+            },
+        ],
+    },
 
     cta: {
         eyebrow: "Visit our showroom",

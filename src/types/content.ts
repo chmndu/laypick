@@ -9,8 +9,14 @@ export type HeroContent = {
 }
 
 export type ServiceItem = {
+  id?: string
   title: string
   description?: string
+}
+
+export type ServicesContent = {
+  eyebrow: string
+  items: ServiceItem[]
 }
 
 export type WorkItem = {
@@ -44,7 +50,7 @@ export type FooterContent = {
 
 export type ContentState = {
   hero?: HeroContent
-  services?: ServiceItem[]
+  services?: ServicesContent
   work?: WorkItem[]
   testimonials?: TestimonialItem[]
   cta?: CTAContent

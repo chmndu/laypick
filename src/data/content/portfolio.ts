@@ -18,20 +18,23 @@ export const portfolioContent: ContentState = {
         images: [],
     },
 
-    services: [
-        {
-            title: "Web Design",
-            description: "Clear, purposeful interfaces for modern brands.",
-        },
-        {
-            title: "Development",
-            description: "Fast, responsive websites built with modern technology.",
-        },
-        {
-            title: "Creative Direction",
-            description: "Visual systems that give digital products a distinct character.",
-        },
-    ],
+    services: {
+        eyebrow: "Services",
+        items: [
+            {
+                title: "Web Design",
+                description: "Clear, purposeful interfaces for modern brands.",
+            },
+            {
+                title: "Development",
+                description: "Fast, responsive websites built with modern technology.",
+            },
+            {
+                title: "Creative Direction",
+                description: "Visual systems that give digital products a distinct character.",
+            },
+        ],
+    },
 
     cta: {
         eyebrow: "Start a project",

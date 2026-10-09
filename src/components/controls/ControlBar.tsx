@@ -1,6 +1,7 @@
 "use client"
 
 import {
+    FileText,
     LayoutPanelTop,
     Palette,
     Smartphone,
@@ -28,6 +29,11 @@ const controls: {
             id: "sections",
             label: "Sections",
             icon: LayoutPanelTop,
+        },
+        {
+            id: "content",
+            label: "Content",
+            icon: FileText,
         },
         {
             id: "responsive",
